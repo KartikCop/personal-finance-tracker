@@ -1,0 +1,24 @@
+{% load widget_tweaks %}
+
+<h1 class="mt-8 mb-4 prose prose-2xl text-white">
+    Create Transaction
+</h1>  
+
+    <form hx-post="{% url 'create-transaction' %}">
+       
+        {% include 'tracker/partials/transaction-form.html' %}
+
+    <button class="bg-green-600 text-black py-2 px-4 rounded hover:bg-green-700 hover:shadow-md transition duration-300">
+        Add
+    </button>
+
+    <button class="bg-red-500 text-black px-4 py-2 rounded-md hover:bg-red-700 hover:shadow-lg transition duration-300 ease-in-out"
+    hx-get="{% url 'transactions-list' %}" 
+    hx-target="#transaction-block "
+    hx-push-url="/transactions"
+    >
+        Cancel
+    </button>
+
+</form>
+  
